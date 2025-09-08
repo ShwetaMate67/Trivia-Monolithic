@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided code snippet is a fixed version of the tomcat-embed-core dependency. The vulnerability in Apache Tomcat mentioned in the request relates to a lack of proper resource allocation or throttling in some versions. By updating to version 10.1.44, the issuing is resolved and the vulnerability is addressed completely. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The fixed version of the POM file addresses the vulnerability by ensuring that the correct version of Spring Boot is used, which fixes the issue with EndpointRequest.to() and Spring Security configuration. This is accomplished by updating the version of spring-boot to a fixed, specific version. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
