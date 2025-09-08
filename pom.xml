@@ -54,7 +54,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: Updated Tomcat to version 10.1.44 to fix security vulnerabilities -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: Updated Tomcat to version 10.1.44 to fix security vulnerabilities -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: Updated PostgreSQL JDBC driver to version 42.7.7 to fix security vulnerabilities -->
+        <dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<scope>runtime</scope>
+</dependency>
+
+        <!-- SECURITY FIX: Updated Spring Boot to version 3.4.5 to fix security vulnerabilities -->
+        <dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter</artifactId>
+<version>3.4.5</version>
+</dependency>
+</dependencies>
 
 	<build>
 		<plugins>
