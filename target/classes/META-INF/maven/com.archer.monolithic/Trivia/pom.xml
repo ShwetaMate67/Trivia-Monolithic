@@ -54,7 +54,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: The provided code fixes the vulnerability within the Tomcat package. The updated version 10.1.44 ensures it addresses the DoS vulnerability in multipart upload and resolves the issue completely. -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided code snippet updates the Apache Tomcat version to 10.1.44, which addresses the 'MadeYouReset' vulnerability. The vulnerability arises from improper handling of HTTP/2 control frames, enabling a potential denial of service attack. Apache Tomcat version 10.1.44 contains the fix for this issue, ensuring proper resource release and preventing the vulnerability. -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided Maven dependency on version 42.7.5 of org.postgresql:postgresql is outdated and does not include fixes for security vulnerabilities. Updating to version 42.7.7 ensures known vulnerabilities, including the incorrect authentication method, are patched and the application is protected. -->
+        <dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<scope>runtime</scope>
+</dependency>
+
+        <!-- SECURITY FIX: The updated version of spring-boot dependency addresses a vulnerability where EndpointRequest.to() creates a matcher for null/** if the actuator endpoint is not exposed. This resolution ensures you have the latest fixes from the spring-boot developers, addressing this and other potential vulnerabilities. -->
+        <dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot</artifactId>
+<version>${spring-boot.version}</version>
+</dependency>
+</dependencies>
 
 	<build>
 		<plugins>

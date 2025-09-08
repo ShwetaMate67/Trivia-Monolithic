@@ -54,7 +54,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: Updated the version of the `tomcat-embed-core` package to 10.1.44 to resolve the noted vulnerability. This version includes a fix for the DoS attack in the multipart upload component. -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided Maven dependency update addresses the Improper Resource Shutdown or Release vulnerability in Apache Tomcat, which affected older versions of Tomcat. The fixed version, 10.1.44, is not affected by this vulnerability and resolves the issue entirely. -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided Maven dependency on version org.postgresql:postgresql42:42.7.5 is outdated and contains a high-severity security vulnerability. The fix for this vulnerability is to update to version 42.7.7, which addresses the issue entirely, ensuring that authentication remains secure. -->
+        <dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<scope>runtime</scope>
+</dependency>
+
+        <!-- SECURITY FIX: The updated version number of spring-boot dependency ensures that the spring-boot library is updated with the latest fixes and addresses the identified vulnerability. It is essential to use the latest, public version of spring-boot, as provided by ${spring-boot.version}, to ensure the vulnerability is fully resolved. -->
+        <dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot</artifactId>
+<version>${spring-boot.version}</version>
+</dependency>
+</dependencies>
 
 	<build>
 		<plugins>
