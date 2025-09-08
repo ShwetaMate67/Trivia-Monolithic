@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided code snippet is a fix for the High severity Apache Tomcat vulnerability in the Trivia package. The fix upgrades the tomcat-embed-core version to 10.1.44, which addresses the noted vulnerability. This particular version is selected because it addresses the vulnerability, and it is compatible with the stated Maven group and artifact IDs, along with the correct scope (which here is runtime). Ensure the scope is correct as well. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The updated version of spring-boot fixes a vulnerability that affects EndpointRequest.to() if the actuator endpoint is not exposed. The fixed version addresses this issue entirely, so it is recommended to upgrade as soon as possible if you are affected by this vulnerability. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
