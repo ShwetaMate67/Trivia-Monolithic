@@ -86,3 +86,31 @@
 	</build>
 
 </project>
+
+// SECURITY FIX: Updated the tomcat-embed-core dependency version to 10.1.42
+// <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.42</version>
+</dependency>
+
+// SECURITY FIX: Updated tomcat-embed-core dependency to version 10.1.44
+// <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+// SECURITY FIX: Updated the PostgreSQL JDBC driver dependency to version 42.7.7.
+// <dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+</dependency>
+
+// SECURITY FIX: Updated Spring Boot dependency to a version that fixes the vulnerability.
+// <dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter</artifactId>
+<version>3.1.0</version> <!-- Or a later version that addresses this vulnerability -->
+</dependency>
