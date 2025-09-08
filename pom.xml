@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Updated the version of the `tomcat-embed-core` package to 10.1.44 to resolve the noted vulnerability. This fixed version does not have the vulnerability that could lead to a DoS attack. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The original code used a vulnerable version of the spring-boot dependency. The fixed dependency updates the version to a newer iteration, which addresses the vulnerability present in the older version. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
