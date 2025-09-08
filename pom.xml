@@ -83,6 +83,21 @@
 <artifactId>spring-boot-starter</artifactId>
 <version>3.4.5</version>
 </dependency>
+
+        <!-- SECURITY FIX: Updated PostgreSQL JDBC driver to latest secure version -->
+        <dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<scope>runtime</scope>
+</dependency>
+
+        <!-- SECURITY FIX: Updated Spring Boot to latest secure version -->
+        <dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter</artifactId>
+<version>3.4.5</version>
+</dependency>
 </dependencies>
 
 	<build>
