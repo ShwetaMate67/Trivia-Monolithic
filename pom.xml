@@ -54,7 +54,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided Maven dependency update addresses the High severity Apache Tomcat vulnerability ( Allocation of Resources Without Limits or Throttling ).
+The fix upgrades the affected artifact tomcat-embed-core to version 10.1.44, which resolves this issue entirely. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>

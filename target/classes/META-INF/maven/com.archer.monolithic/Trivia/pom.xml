@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided code fixes the vulnerability within the Tomcat package. The original version, 10.1.36, is affected by the vulnerability. However, the updated version 10.1.44 is not susceptible to the issue and addresses the resource allocation problem. This fix ensures the resources are allocated properly, protecting against the possibility of a DoS attack. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The updated version of spring-boot dependency addresses a critical vulnerability whereby EndpointRequest.to() creates a matcher for null/** if the actuator endpoint is disabled. This spring-boot version ensures that the EndpointRequest refers to the correct endpoint and protects against unauthorized access to /null paths. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
