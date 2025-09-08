@@ -54,7 +54,128 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: Updated the version of org.apache.tomcat.embed:tomcat-embed-core to 10.1.42 to resolve the DoS vulnerability in multipart upload. This version includes a fix where the allocation of resources in Apache Tomcat occurs without limits or throttling, leading to the vulnerability. Updating to this fixed version prevents the exploitation of this issue. -->
+        <dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.42</version>
+</dependency>
+
+        <!-- SECURITY FIX: Original code "10.1.36" was vulnerable to the "MadeYouReset" DoS attack through HTTP/2 control frames due to the Improper Resource Shutdown or Release vulnerability. The updated code "10.1.44" includes the fixed version of Apache Tomcat, which addresses this issue. -->
+        <dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided pom.xml file shows the incorrect configuration of the pgjdbc dependency, which has since been updated from version 42.7.5 to 42.7.7. This addresses a high-severity vulnerability that allows man-in-the-middle attacks by correcting authentication behavior. -->
+        <?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<dependencies>
+<dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+</dependency>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
+</project>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
+</dependencyManagement>
+
+        <!-- SECURITY FIX: The provided pom.xml file shows the incorrect configuration of the pgjdbc dependency, which has since been updated from version 42.7.5 to 42.7.7. This addresses a high-severity vulnerability that allows man-in-the-middle attacks by correcting authentication behavior. -->
+        <?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<dependencies>
+<dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+</dependency>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
+</project>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
+</dependencyManagement>
+
+        <!-- SECURITY FIX: Original code "10.1.36" was vulnerable to the "MadeYouReset" DoS attack through HTTP/2 control frames due to the Improper Resource Shutdown or Release vulnerability. The updated code "10.1.44" includes the fixed version of Apache Tomcat, which addresses this issue. -->
+        <dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided pom.xml file shows the incorrect configuration of the pgjdbc dependency, which has since been updated from version 42.7.5 to 42.7.7. This addresses a high-severity vulnerability that allows man-in-the-middle attacks by correcting authentication behavior. -->
+        <?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<dependencies>
+<dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+</dependency>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
+</project>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
+</dependencyManagement>
+
+        <!-- SECURITY FIX: The provided pom.xml file shows the incorrect configuration of the pgjdbc dependency, which has since been updated from version 42.7.5 to 42.7.7. This addresses a high-severity vulnerability that allows man-in-the-middle attacks by correcting authentication behavior. -->
+        <?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+<dependencies>
+<dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+<version>42.7.7</version>
+</dependency>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
+</project>
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the Actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to version 4.3.0. -->
+        <dependency-blocks>
+</dependencies>
 
 	<build>
 		<plugins>

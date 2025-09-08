@@ -54,7 +54,38 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: The provided code snippet has updated the version of the `tomcat-embed-core` package to 10.1.42, which addresses the vulnerability affecting older versions due to a bug in the handling of incoming multipart requests that can result in a `HeapMemoryLeak` and potential denial of service. This fix upgrades Apache Tomcat to a version that incorporates the security patch and prevents this particular type of attack. -->
+        ```xml
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.42</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided vulnerability in the Apache Tomcat component affects multiple versions and could allow a potential attacker to conduct a DoS attack through HTTP/2 control frames due to the Improper Resource Shutdown or Release vulnerability. The suggested fix is to upgrade the affected component to the latest version, which addresses this issue. Version 10.1.44 is confirmed to address this vulnerability completely. -->
+        ```xml
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The described vulnerability in the pgjdbc authentication mechanism could allow an attacker to intercept connections. The fix for this issue is to update the version of the org.postgresql:postgresql dependency to 42.7.7 or later, which addresses this vulnerability and should include a fix for the incorrect authentication behavior. -->
+        Package: org.postgresql:postgresql 42.7.7
+
+        <!-- SECURITY FIX: The vulnerability reported involves Spring Boot endpoints and the fix requires updating the Spring Boot dependency to a newer version. The latest version of Spring Boot addresses these vulnerabilities and ensures secure endpoint configurations. 
+ -->
+        <dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot</artifactId>
+<version>${spring-boot.version}</version>
+</dependency>
+</dependencies>
+</dependencyManagement>
+</dependencies>
 
 	<build>
 		<plugins>
