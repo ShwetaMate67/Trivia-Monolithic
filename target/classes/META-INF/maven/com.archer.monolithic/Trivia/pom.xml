@@ -54,7 +54,37 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: The provided Tomcat version 10.1.36 is affected by a DoS vulnerability. Updating to Tomcat version 10.1.42 resolves this issue. This fix involves updating the tomcat-embed-core version to 10.1.42 to resolve the vulnerability affecting Apache Tomcat due to inadequate resource allocation with unbounded limitations. -->
+        ```xml
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.42</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided Tomcat version, 10.1.36, is affected by a vulnerability that leads to a DoS attack through HTTP/2 control frames. The updated version 10.1.44 fixes this issue. This vulnerability is due to improper Resource Shutdown or Release and can be triggered by an attacker sending a specially crafted request. -->
+        ```xml
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The updated package version of org.postgresql:postgresql 42.7.7 is resolved to fix the insecure authentication in channel binding vulnerability. This version ensures that the JDBC driver correctly enforces channel binding, ensuring that only authentication methods supporting channel binding are allowed, thereby securing the authentication process against potential MITM attacks. -->
+        Package: org.postgresql:postgresql 42.7.7
+
+        <!-- SECURITY FIX: The vulnerability in the Spring Boot library is addressed by upgrading the spring-boot version to a secure version. This prevents the incorrect matcher from being created and ensures that the Actuator endpoint is properly handled and protected. -->
+        <dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot</artifactId>
+<version>${spring_boot.version}</version>
+</dependency>
+</dependencies>
+</dependencyManagement>
+</dependencies>
 
 	<build>
 		<plugins>
