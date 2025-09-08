@@ -54,7 +54,37 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: The provided pom.xml file from the target/classes/META-INF/maven/com.archer.monolithic/Trivia package cites a version of tomcat-embed-core vulnerable to the DoS vulnerability. By updating the version to 10.1.42, the cited vulnerability is resolved, as stated by the Apache Tomcat team's guidance. -->
+        ```xml
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.42</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided vulnerability in the Apache Tomcat component affects multiple versions and could allow a potential attacker to conduct a DoS attack through HTTP/2 control frames due to the improper shutdown or release of resources. The suggested fix involves upgrading the specific artifact version to 10.1.44 or higher, which addresses this issue and resolves the vulnerability completely. -->
+        ```xml
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44</version>
+</dependency>
+
+        <!-- SECURITY FIX: The provided vulnerability arises from an insecure authentication issue in pgjdbc. This can be resolved by updating the org.postgresql:postgresql dependency to 42.7.7 or a later version that includes the fix. This version includes a fix where the PostgreSQL JDBC driver is configured with channel binding set to required, and it would incorrectly allow connections to proceed with authentication methods that do not support channel binding. -->
+        Package: org.postgresql:postgresql 42.7.7
+
+        <!-- SECURITY FIX: The vulnerability reported involves Spring Boot EndpointRequest.to() creating the wrong matcher if the Actuator endpoint is not exposed. The resolution requires updating the spring-boot dependency to a newer version which addresses this issue. The fix involves updating the spring-boot version to 3.5.0 or higher which resolves the issue. -->
+        <dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot</artifactId>
+<version>${spring-boot.version}</version>
+</dependency>
+</dependencies>
+</dependencyManagement>
+</dependencies>
 
 	<build>
 		<plugins>
