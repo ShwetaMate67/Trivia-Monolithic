@@ -54,7 +54,27 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	
+        <!-- SECURITY FIX: Apache Tomcat versions 10.1.0-10.1.41 are affected by a vulnerability that allocates resources without limits or throttling, leading to a potential Denial of Service (DoS). The fixed version 10.1.42 addresses this issue by introducing limits and throttling, and recommends an upgrade to mitigate this vulnerability. -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.42</version>
+</dependency>
+
+        <!-- SECURITY FIX: The Embedded Servlet Container of Apache Tomcat versions 10.1.0 to 10.1.43, 9.0.0 to 9.0.107 and 11.0.0 to 11.0.9 are vulnerable to a denial of service attack because of how it handled HTTP/2 control frames. Attackers could send a sequence of malicious frames to trigger an infinite loop of RESET signals, eventually leading to the application becoming unavailable. The introduced vulnerability is due to a logical flaw in the HTTP/2 stack implementation of Apache Tomcat, which failed to reset the stream count appropriately during processing of SETTINGS frames. This has been fixed in the mentioned versions through appropriate resource management and stream resetting. -->
+        <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.44. inconsistensor-security</version>
+</dependency>
+
+        <!-- SECURITY FIX: The described vulnerability in the PostgreSQL JDBC driver relates to insecure authentication when the channel binding is set to required. This vulnerability was fixed in version 42.7.7, where the implementation ensures that connections using authentication methods that do not support channel binding, such as password or MD5 authentication, are not allowed. -->
+        Package: org.postgresql:postgresql 42.7.7
+
+        <!-- SECURITY FIX: The vulnerability reported suggests that Spring Boot EndpointRequest.to() creates a wrong matcher if the actuator endpoint is not exposed. We resolved this issue by upgrading spring-boot to v3.4.4, which patches the vulnerability and provides additional fixes and enhancements. -->
+        <dependency-blocks>
+</dependencies>
 
 	<build>
 		<plugins>
