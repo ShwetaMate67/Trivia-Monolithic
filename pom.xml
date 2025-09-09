@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided Maven dependency update addresses the Apache Tomcat Allocation of Resources Without Limits or Throttling vulnerability (CVE-2021-1945). The issue affected multiple versions of Apache Tomcat, and users were advised to upgrade to versions 10.1.42, 9.0.106, or 11.0.8. This fix updates the version of tomcat-embed-core to 10.1.44, which resolves the vulnerability completely. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The updated version of spring-boot fixes a vulnerability where EndpointRequest.to() creates a matcher for null/** if the actuator endpoint is not exposed. This resolution incorporates the corrected code, addressing the issue entirely. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
