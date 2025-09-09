@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Updated the version of tomcat-embed-core to 10.1.44 to resolve the vulnerability affecting previous versions of tomcat. 10.1.44 is not affected by the mentioned DoS vulnerability in multipart upload. This fix follows the recommendation provided by the CVE. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The original code used a vulnerable version of the spring-boot dependency. The fixed code uses the latest version of spring-boot, which addresses the vulnerability because the newest versions of Spring Boot contain fixes for security vulnerabilities found in older versions. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
