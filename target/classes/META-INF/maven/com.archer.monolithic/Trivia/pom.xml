@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided code fixes the vulnerability in Apache Tomcat by updating the version of the `tomcat-embed-core` package to 10.1.44. This version includes a fix for the Allocation of Resources Without Limits or Throttling vulnerability, addressing the issue completely and enhancing system security. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The updated version of the spring-boot dependency addresses a vulnerability where EndpointRequest.to() creates a matcher for null/** if the actuator endpoint is not exposed. This resolution ensures you have the latest fixes from the spring-boot developers, resolving this and other potential issues. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>

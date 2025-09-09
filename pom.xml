@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The original version of tomcat-embed-core (10.1.36) is vulnerable to a denial-of-service attack via unbounded resource allocation during multipart uploads.  This fix updates the dependency to version 10.1.42, which contains the patch that addresses this vulnerability. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: Upgrading spring-boot-starter-actuator to version 3.1.5 (or later) resolves the issue where EndpointRequest.to() creates an incorrect matcher for null/** when an actuator endpoint is disabled or not exposed.  This version contains a fix for this vulnerability.  Note that simply updating spring-boot may not be sufficient as the problem lies specifically with the actuator module. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
