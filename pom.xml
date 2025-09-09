@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided Maven dependency update addresses the Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat. The fix upgrades the affected artifact to version 10.1.44, which resolves the issue completely. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The updated version number of spring-boot dependency ensures that the spring-boot library is updated with the latest fixes and addresses the identified vulnerability. It is essential to use the latest, secure version of dependencies to mitigate any known vulnerabilities. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
