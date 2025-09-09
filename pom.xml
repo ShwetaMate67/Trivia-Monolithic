@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided fix updates the version of the 'tomcat-embed-core' package from 10.1.36 to 10.1.44, addressing a vulnerability in improper input validation in Apache Tomcat. The specific version is selected based on the available version details provided in the vulnerability description, which includes the affected version range and the fixed version. The fix ensures that the vulnerable component is updated to a safe version, reducing the risk of exposure to the identified vulnerability. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
