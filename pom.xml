@@ -54,7 +54,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Updated the version of the `tomcat-embed-core` package to 10.1.44 to resolve the noted vulnerability. This version includes a fix for the DoS issue in multipart upload, which ensures resources are allocated with limits and throttling, providing protection against potential security threats. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The updated version of spring-boot dependency addresses a critical vulnerability whereby EndpointRequest.to() creates a matcher for null/** if the actuator endpoint is disabled or not exposed. This vulnerability is resolved in the updated spring-boot version. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
