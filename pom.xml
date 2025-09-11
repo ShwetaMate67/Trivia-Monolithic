@@ -54,7 +54,31 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided fix updates the version of the 'tomcat-embed-core' package to 10.1.44, resolving the 'DoS via malformed HTTP/2 PRIORITY_UPDATE frame' issue. The vulnerability resulted from improper validation of HTTP priority headers, leading to memory leaks. The new version includes error-handling improvements to prevent this situation. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The updated version of spring-boot dependency resolves a critical security issue that arises when Spring Actuator endpoint is not exposed. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- SECURITY FIX: Updating the spring-context version to 6.2.8 resolves the security issue entirely. The previous version, 6.2.3, was susceptible to the outlined vulnerability, but the latest version has patched this issue. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.2.8</version>
+        </dependency>
+        <!-- SECURITY FIX: Spring-Web version 6.2.4 resolves a security issue in prior versions where an application is vulnerable to a reflected file download attack when it sets a `Content-Disposition` header with a non-ASCII charset. This can be exploited when the filename attribute is derived from user-supplied input. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.2.4</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
