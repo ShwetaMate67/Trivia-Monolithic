@@ -54,7 +54,25 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability is addressed by upgrading the tomcat-embed-core dependency to version 10.1.44 or higher. This version contains a fix for the improper input validation that led to the memory leak and potential denial of service. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The vulnerability arises from an interaction between Spring Boot and Spring Security when actuator endpoints aren't properly exposed. Upgrading spring-boot-starter-actuator to version 3.1.7 addresses this issue by correcting the endpoint matcher creation within Spring Boot. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>3.1.7</version>
+        </dependency>
+        <!-- SECURITY FIX: The vulnerability is addressed by upgrading the spring-web dependency to version 6.0.6 or later. This version contains a fix for the reflected file download attack with non-ASCII headers. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
