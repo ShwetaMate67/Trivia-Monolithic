@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided Maven dependency update addresses the Medium severity vulnerability in Apache Tomcat mentioned in the request. The specific version, 10.1.44, is a fix released to address the improper input validation and memory leak issues. Updating to this version will resolve the vulnerability completely. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
