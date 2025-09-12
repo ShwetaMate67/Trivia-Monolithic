@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability CVE-2024-38820 in Spring Framework's DataBinder is addressed in version 6.2.4.  Updating to this version ensures locale-independent, lowercase conversion for both disallowed fields and request parameter names, mitigating the case-sensitivity issue. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.2.4</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
