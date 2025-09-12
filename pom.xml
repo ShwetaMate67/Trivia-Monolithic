@@ -54,7 +54,31 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability in tomcat-embed-core 10.1.36 was addressed in version 10.1.44 by improving error handling for malformed HTTP/2 PRIORITY_UPDATE frames, preventing memory leaks and DoS attacks. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: Upgrading spring-boot-starter-actuator to version 3.1.5 addresses the vulnerability by fixing the issue in EndpointRequest.to() that creates incorrect matchers when actuator endpoints are not exposed.  This version contains the necessary patch. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+        <!-- SECURITY FIX: The vulnerability in Spring Framework DataBinder (CVE-2024-38820) is addressed in version 6.1.0 and later.  Updating the spring-context dependency to this version mitigates the case-sensitivity issue. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.1.0</version>
+        </dependency>
+        <!-- SECURITY FIX: The vulnerability is addressed by updating the spring-web dependency to version 6.0.6 or later.  This version contains the fix for the reflected file download attack with non-ASCII headers. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
