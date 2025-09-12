@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Updated the Maven dependency to the recommended latest version of tomcat-embed-core (10.1.44), which resolves the Improper Resource Shutdown or Release vulnerability in Apache Tomcat, mitigating the 'MadeYouReset' DoS attack risk through HTTP/2 control frames. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
