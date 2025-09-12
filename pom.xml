@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Updated the specific version of the spring-context artifact to 6.2.8, which addresses the vulnerability related to case-sensitive matching and ensures strict coordination with the corresponding DisallowedFieldsFormatHandler configuration. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.2.8</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
