@@ -54,7 +54,25 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability in Apache Tomcat 10.1.36 was addressed in version 10.1.44 by improving the error handling for malformed HTTP/2 PRIORITY_UPDATE frames, preventing memory leaks and DoS attacks. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+        <!-- SECURITY FIX: The vulnerability is addressed by upgrading the spring-context dependency to version 6.1.0 or higher. This version includes a fix for CVE-2024-38820, ensuring consistent, case-insensitive field matching. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.1.0</version>
+        </dependency>
+        <!-- SECURITY FIX: The vulnerability is addressed by upgrading the spring-web dependency to version 6.2.4 or later. This version contains a fix for the reflected file download attack involving non-ASCII characters in Content-Disposition headers. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.2.4</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
