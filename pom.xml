@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Spring-Web version 6.2.4 resolves a security issue in prior versions where an application is vulnerable to a reflected file download attack when it sets a Content-Disposition header with a non-ASCII charset. This can be exploited when the filename attribute is derived from user-supplied input. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.2.4</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
