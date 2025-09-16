@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Updated dependency to secure version -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>test-package</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
