@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The provided fix updates the version of the 'tomcat-embed-core' package to 10.1.44, resolving the 'DoS via malformed HTTP/2 PRIORITY_UPDATE frame' issue. The new version includes proper error handling for invalid HTTP priority headers, ensuring complete cleanup of failed requests and preventing memory leaks. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
