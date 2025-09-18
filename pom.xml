@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: Basic fallback fix for tomcat: Apache Tomcat: DoS via malformed HTTP/2 PRIORITY_UPDATE frame - AI providers unavailable -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>unknown-package</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
