@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability in Apache Tomcat 10.1.36 was addressed by upgrading to version 10.1.44. This update includes improved error handling for malformed HTTP/2 PRIORITY_UPDATE frames, preventing memory leaks and mitigating the denial-of-service risk. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.44</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
