@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability in Tomcat 10.1.36 is addressed by upgrading to version 10.1.47. This version includes fixes that mitigate the rewrite rule bypass issue, enhancing security. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.47</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
