@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability is addressed by upgrading the Apache Tomcat embedded core to version 10.1.54 or later.  This version contains fixes that address the identified rewrite rule bypass issue.  Older versions are susceptible to the vulnerability where specially crafted requests can bypass security constraints enforced by rewrite rules. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.54</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
