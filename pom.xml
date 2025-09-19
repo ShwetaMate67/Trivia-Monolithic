@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The fix updates the 'tomcat-embed-core' dependency to version 10.1.37, which includes a patch for the described vulnerability. This version introduces proper error handling for invalid HTTP priority headers, ensuring that resources are correctly released, preventing memory leaks and potential denial of service attacks. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.37</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
