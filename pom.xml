@@ -86,3 +86,10 @@
 	</build>
 
 </project>
+
+// SECURITY FIX: The vulnerability is caused by an outdated version of the Apache Tomcat embed core library. Upgrading to version 10.1.40 or later is recommended by the Apache Tomcat team, as it includes security fixes for this issue. This new version ensures the proper neutralization of escape sequences, preventing the bypass of rewrite rules and potential security constraints.
+// <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.40</version>
+</dependency>
