@@ -86,3 +86,10 @@
 	</build>
 
 </project>
+
+// SECURITY FIX: The fix updates the 'tomcat-embed-core' dependency to version 10.1.37, which includes a patch for the described vulnerability. This version introduces proper error handling for invalid HTTP priority headers, ensuring the resources are correctly released, preventing the memory leak and potential denial of service.
+// <dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-core</artifactId>
+<version>10.1.37</version>
+</dependency>
