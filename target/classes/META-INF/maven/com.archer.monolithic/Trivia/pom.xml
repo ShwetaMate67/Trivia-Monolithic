@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: This vulnerability in Apache Tomcat is addressed in version 10.1.37 and later.  Updating the tomcat-embed-core dependency to version 10.1.37 or higher ensures that the improved error handling for malformed HTTP/2 PRIORITY_UPDATE frames prevents the memory leak and mitigates the denial-of-service risk. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.37</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
