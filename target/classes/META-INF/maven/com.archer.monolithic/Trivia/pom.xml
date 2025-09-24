@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability is caused by an outdated version of the Apache Tomcat embed core library. Upgrading to the latest version, 10.1.40, addresses this issue by ensuring the security constraints are applied correctly for PreResources and PostResources, preventing unauthorized access. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.40</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
