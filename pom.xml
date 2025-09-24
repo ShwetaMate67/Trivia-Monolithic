@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability can be mitigated by upgrading the tomcat-embed-core library to version 10.1.40 or later, which includes a patch for the 'MadeYouReset' attack. This update ensures proper handling of HTTP/2 control frames, preventing the server from being forced to reset connections. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.40</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
