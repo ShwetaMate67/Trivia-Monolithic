@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability is due to an outdated version of Apache Tomcat's tomcat-embed-core component. Upgrading to the latest stable version, 11.0.24, resolves the issue by ensuring proper resource management and mitigating the 'made you reset' attack. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>11.0.24</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
