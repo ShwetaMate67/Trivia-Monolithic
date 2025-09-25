@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The vulnerability is addressed by upgrading Apache Tomcat Embed Core to version 10.1.40 or later.  This version contains the fix for the authentication bypass vulnerability related to PreResources and PostResources mounted outside the web application root. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.40</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
