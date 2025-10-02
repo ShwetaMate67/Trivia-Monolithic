@@ -54,7 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	        <!-- SECURITY FIX: The fix updates the 'tomcat-embed-core' dependency to version 11.0.1, which contains a patch for the described vulnerability. This version includes improved error handling for invalid HTTP priority headers, ensuring proper resource cleanup and preventing memory leaks. By updating to this version, the system will be protected against the potential denial of service attack. -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>11.0.1</version>
+        </dependency>
+</dependencies>
 
 	<build>
 		<plugins>
